@@ -1,0 +1,418 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    text-align: center;
+    padding: 20px;
+}
+
+.tamagotchi-container {
+    display: inline-block;
+    background: #ffddc1;
+    border: 2px solid #ffab73;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.screen {
+    background: #fff5e6;
+    border: 2px solid #ffab73;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    background: #ffab73;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.controls button:hover {
+    background: #ff8c42;
+}
+
+h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+
+
+/* HomePage*/
+
+
+.OptionsPageBody {
+    background-image: url('./img/Pixelforest4 (1).png');
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de hele achtergrond vult */
+    background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
+    background-position: center; /* Zorgt ervoor dat de afbeelding gecentreerd wordt */
+}
+
+.HomePageBody {
+    background-image: url('./img/PixelForest.jpg');
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+.InstructionsPageBody {
+    background-image: url('./img/PixelForestLake2.png');
+    background-size: auto 100%; /* Houd de breedte automatisch, en pas de hoogte aan op 80% van de viewport */
+    background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
+    background-position: center top; /* Plaatst de afbeelding gecentreerd aan de bovenkant */
+    background-attachment: fixed; /* Laat de achtergrond meescrollen of vaststaan */
+    margin: 0; /* Verwijdert marges */
+    height: 100vh; /* Zorgt ervoor dat de body de hele viewport vult */
+    width: 100%; /* Zorgt ervoor dat de body de hele breedte vult */
+}
+
+
+
+/* Container stijl */
+.container {
+    display: flex;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Knoppen stijl */
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: green;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.button:hover {
+    background-color: darkolivegreen;
+    transform: scale(1.05);
+}
+
+/* Actieve knop effect */
+.button:active {
+    transform: scale(0.95);
+}
+
+/* OptionsPage*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.option-container {
+    margin: 20px 0;
+
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+    color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ASD*/
+
+/* Algemene body-stijl */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Containerstijl */
+.container {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.5);    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* Flexbox voor centreren */
+    display: flex;
+    flex-direction: column; /* Zet de elementen onder elkaar */
+    justify-content: center; /* Verticaal centreren van de inhoud */
+    align-items: center; /* Horizontaal centreren van de inhoud */
+    text-align: center; /* Zorg ervoor dat de tekst gecentreerd is */
+}
+.container2 {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* Flexbox voor centreren */
+    display: flex;
+    flex-direction: column; /* Zet alle inhoud, inclusief knoppen, onder elkaar */
+    justify-content: center; /* Verticaal centreren van de inhoud */
+    align-items: center; /* Horizontaal centreren van de inhoud */
+    text-align: center; /* Zorg ervoor dat tekst gecentreerd is */
+}
+
+.container2 button {
+    width: 250px; /* Maak alle knoppen even breed */
+    margin: 10px 0; /* Ruimte boven en onder elke knop */
+    padding: 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover-effect voor knoppen */
+.container2 button:hover {
+    background-color: forestgreen;
+    transform: scale(1.05);
+}
+
+
+/* Titelstijl */
+.container h1 {
+    color: #333;
+    margin-bottom: 20px; /* Geef ruimte tussen h1 en h2 */
+}
+
+/* Stijl voor h2-elementen */
+.container h2 {
+    color: #333;
+    margin: 10px 0; /* Geef wat ruimte tussen de h2-elementen */
+}
+
+
+
+/* homepage muziek icoontje*/
+/* Plaats de knop rechtsboven */
+.sound-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s ease;
+}
+
+.sound-toggle:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Meldingstijl */
+#autoplayMessage {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+}
+
+
+
+.sound-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* IndexPage */
+body {
+    background-image: url('./img/PixelForest3.png');
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de hele achtergrond bedekt */
+    background-position: center; /* Centreert de afbeelding */
+    background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.panda-image img {
+    width: 200px;
+    height: auto;
+}
+
+.buttons {
+    margin: 20px 0;
+}
+
+.buttons button {
+    margin: 10px;
+    padding: 20px 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+}
+
+.buttons button:active {
+    background-color: #45a049;
+}
+
+.stats {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.stats div {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/*chatbox*/
+
+.chatbox {
+    position: fixed; /* Zorgt ervoor dat de chatbox altijd zichtbaar blijft */
+    top: 20%; /* Plaats de chatbox iets lager vanaf de bovenkant */
+    right: 20px; /* Houd afstand van de rechterkant */
+    width: 250px; /* Breedt de chatbox */
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8); /* Achtergrond met transparantie */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-height: 300px; /* Maximale hoogte van de chatbox */
+    overflow-y: auto; /* Scrollen als er teveel berichten zijn */
+}
+
+.chatbox h3 {
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+    color: #333;
+}
+
+#chatMessages {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}

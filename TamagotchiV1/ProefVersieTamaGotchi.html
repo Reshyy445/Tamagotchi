@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panda Tamagotchi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            margin: 50px auto;
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .panda-image img {
+            width: 200px;
+            height: auto;
+        }
+        .stats {
+            margin: 20px 0;
+        }
+        .stats div {
+            margin: 10px 0;
+        }
+        .buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+        }
+        .buttons button:active {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="panda-image">
+    <img id="pandaImg" src="img/Tamagotchi/SleepingPanda2.jpg" alt="Panda">
+</div>
+
+    <div class="stats">
+        <div>Sleep: <span id="sleep">100</span></div>
+        <div>Happiness: <span id="happiness">100</span></div>
+        <div>Hunger: <span id="hunger">100</span></div>
+    </div>
+    <div class="buttons">
+        <button onclick="feedPanda()">Feed</button>
+        <button onclick="playWithPanda()">Play</button>
+        <button onclick="restPanda()">Rest</button>
+    </div>
+</div>
+
+<script>
+    // Initial stats
+    let sleep = 100;
+    let happiness = 100;
+    let hunger = 100;
+
+    const pandaImg = document.getElementById('pandaImg');
+
+    function updateStats() {
+        document.getElementById('sleep').textContent = sleep;
+        document.getElementById('happiness').textContent = happiness;
+        document.getElementById('hunger').textContent = hunger;
+    }
+
+    function feedPanda() {
+        hunger = Math.min(hunger + 20, 100);
+        happiness = Math.max(happiness - 5, 0);
+        pandaImg.src = 'img/Tamagotchi/EatingPanda.jpg'; // Correct image path
+        updateStats();
+    }
+
+    function playWithPanda() {
+        happiness = Math.min(happiness + 20, 100);
+        sleep = Math.max(sleep - 10, 0);
+        hunger = Math.max(hunger - 10, 0);
+        pandaImg.src = 'img/Tamagotchi/PlayingPanda.jpg'; // Correct image path
+        updateStats();
+    }
+
+    function restPanda() {
+        sleep = Math.min(sleep + 20, 100);
+        happiness = Math.max(happiness - 5, 0);
+        pandaImg.src = 'img/Tamagotchi/SleepingPanda2.jpg'; // Correct image path
+        updateStats();
+    }
+
+    // Periodically decrease stats over time
+    setInterval(() => {
+        sleep = Math.max(sleep - 1, 0);
+        happiness = Math.max(happiness - 1, 0);
+        hunger = Math.max(hunger - 1, 0);
+
+        if (sleep === 0 || happiness === 0 || hunger === 0) {
+            pandaImg.src = 'img/Tamagotchi/SadPanda.jpg'; // Correct image path
+        } else {
+            pandaImg.src = 'img/Tamagotchi/HappyPanda.jpg'; // Correct image path
+        }
+
+        updateStats();
+    }, 5000); // Updates every 5 seconds
+
+</script>
+
+</body>
+</html>

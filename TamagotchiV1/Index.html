@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panda Tamagotchi</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+<audio id="background-music" loop>
+    <source src="img/chiptune-techno-polka-218042.mp3" type="audio/mpeg">
+    <source src="img/chiptune-techno-polka-218042.mp3" type="audio/ogg">
+    Je browser ondersteunt geen audio-element.
+</audio>
+<div class="chatbox">
+    <h3>Panda Chat</h3>
+    <div id="chatMessages"></div>
+</div>
+
+<div class="container">
+    <div class="buttons">
+        <button onclick="feedPanda()">Feed</button>
+        <button onclick="playWithPanda()">Play</button>
+        <button onclick="restPanda()">Rest</button>
+    </div>
+
+    <div class="panda-image">
+        <img id="pandaImg" src="img/Tamagotchi/Happypanda.jpg" alt="Panda">
+    </div>
+    
+    <div class="stats">
+        <div><strong>Sleep:</strong> <span id="sleep">100</span></div>
+        <div><strong>Happiness:</strong> <span id="happiness">100</span></div>
+        <div><strong>Hunger:</strong> <span id="hunger">100</span></div>
+    </div>
+</div>
+
+
+
+<script>
+
+    // Verwijzing naar het audio-element
+    const music = document.getElementById('background-music');
+
+    // Voeg klikgebeurtenis toe om muziek af te spelen
+    document.body.addEventListener('click', () => {
+        // Probeer de muziek af te spelen zodra de pagina wordt aangeklikt
+        music.play().then(() => {
+            console.log("Muziek speelt nu op de achtergrond.");
+        }).catch((error) => {
+            console.warn("Autoplay geblokkeerd:", error);
+        });
+    }, { once: true }); // Dit zorgt ervoor dat de muziek slechts één keer start bij de eerste klik
+
+    // Initial stats
+    let sleep = 100;
+    let happiness = 100;
+    let hunger = 100;
+
+    const pandaImg = document.getElementById('pandaImg');
+    const chatMessages = document.getElementById('chatMessages');
+
+    function updateStats() {
+        document.getElementById('sleep').textContent = sleep;
+        document.getElementById('happiness').textContent = happiness;
+        document.getElementById('hunger').textContent = hunger;
+    }
+
+    function addChatMessage(message) {
+        const newMessage = document.createElement('p');
+        newMessage.textContent = message;
+        chatMessages.appendChild(newMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll naar het einde
+    }
+
+    function feedPanda() {
+        hunger = Math.min(hunger + 20, 100);
+        happiness = Math.min(happiness + 10, 100);
+        pandaImg.src = 'img/Tamagotchi/EatingPanda.jpg';
+        addChatMessage("Yum yum! Dat was lekker!");
+        updateStats();
+    }
+
+    function playWithPanda() {
+        happiness = Math.min(happiness + 20, 100);
+        sleep = Math.max(sleep - 10, 0);
+        hunger = Math.max(hunger - 10, 0);
+        pandaImg.src = 'img/Tamagotchi/PlayingPanda.jpg';
+        addChatMessage("Dit is zo leuk! Ik hou van spelen!");
+        updateStats();
+    }
+
+    function restPanda() {
+        sleep = Math.min(sleep + 20, 100);
+        happiness = Math.max(happiness - 5, 0);
+        hunger = Math.max(hunger - 5, 0);
+        pandaImg.src = 'img/Tamagotchi/SleepingPanda2.jpg';
+        addChatMessage("Zzz... Ik ben aan het slapen...");
+        updateStats();
+    }
+
+    // Periodically decrease stats over time and display panda's needs
+    setInterval(() => {
+        sleep = Math.max(sleep - 1, 0);
+        happiness = Math.max(happiness - 1, 0);
+        hunger = Math.max(hunger - 1, 0);
+
+        // Panda expresses needs
+        if (hunger < 30 && hunger > 0) {
+            addChatMessage("Ik heb honger! Geef me alsjeblieft wat te eten.");
+        }
+        if (sleep < 30 && sleep > 0) {
+            addChatMessage("Ik ben moe... Ik wil slapen.");
+        }
+        if (happiness < 30 && happiness > 0) {
+            addChatMessage("Ik voel me niet zo blij... Wil je met me spelen?");
+        }
+
+        // Change panda image based on conditions
+        if (sleep < 10) {
+            pandaImg.src = 'img/Tamagotchi/SleepingPanda-removebg-preview.jpg';
+        } else if (happiness > 80) {
+            pandaImg.src = 'img/Tamagotchi/TamagotchiPanda-removebg-preview.png';
+        } else if (sleep < 30 || happiness < 30 || hunger < 30) {
+            pandaImg.src = 'img/Tamagotchi/SadPanda.jpg';
+        } else {
+            pandaImg.src = 'img/Tamagotchi/HappyPanda.jpg';
+        }
+
+        updateStats();
+    }, 5000); // Updates every 5 seconds
+</script>
+
+
+
+</body>
+</html>

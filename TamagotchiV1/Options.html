@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="OptionsPageBody">
+
+<div class="container">
+    <h1>Options</h1>
+
+    <!-- Geluidseffecten aan/uit -->
+    <div class="option-container">
+        <h2>Sound effects</h2>
+        <button class="button" id="soundToggle">On</button>
+        <button class="button" id="soundToggle">Off</button>
+
+    </div>
+
+    <!-- Muziek aan/uit -->
+    <div class="option-container">
+        <h2>Music</h2>
+        <button class="button" onclick="playMusic()">Start Music</button>
+        <button class="button" onclick="pauseMusic()">Pause Music</button>
+    </div>
+
+    <!-- Geluidsniveau -->
+    <div class="option-container">
+        <h2>Music Volume</h2>
+        <input type="range" id="volumeControl" min="0" max="100" value="100" />
+        <label for="volumeControl">Volume: <span id="volumeValue">100</span>%</label>
+    </div>
+
+    <!-- Audio-element -->
+    <audio id="background-music" src="img/chiptune-ending-212716%20(1).mp3" loop></audio>
+</div>
+
+<script>
+    const music = document.getElementById('background-music');
+    const volumeControl = document.getElementById('volumeControl');
+    const volumeValue = document.getElementById('volumeValue');
+
+    function playMusic() {
+        music.play();
+    }
+
+    function pauseMusic() {
+        music.pause();
+    }
+
+    // Volume-aanpassing
+    volumeControl.addEventListener('input', function () {
+        const volume = volumeControl.value / 100;
+        music.volume = volume; // Stel het volume in (waarde tussen 0 en 1)
+        volumeValue.textContent = volumeControl.value; // Toon het volumepercentage
+    });
+</script>
+
+</body>
+</html>
+
+

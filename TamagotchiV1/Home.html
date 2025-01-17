@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body class="HomePageBody">
+
+<div class="container2">
+    <!-- Play Button -->
+    <a href="Index.html">
+        <button class="button">Play</button>
+    </a>
+
+    <!-- Options Button -->
+    <a href="Options.html">
+        <button class="button">Options</button>
+    </a>
+
+    <!-- Instructions Button -->
+    <a href="Instructions.html">
+        <button class="button">Instructions</button>
+    </a>
+</div>
+
+<!-- Melding als autoplay geblokkeerd is -->
+<div id="autoplayMessage" style="display: block; color: red; text-align: center;">
+    Klik ergens op de pagina om de muziek te starten.
+</div>
+
+<!-- Audio-element -->
+<audio id="background-music" loop>
+    <source src="img/chiptune-ending-212716.mp3" type="audio/mpeg">
+    <source src="img/chiptune-ending-212716.ogg" type="audio/ogg">
+    Je browser ondersteunt geen audio-element.
+</audio>
+
+<script>
+    // Verwijzingen naar audio-element en melding
+    const music = document.getElementById('background-music');
+    const autoplayMessage = document.getElementById('autoplayMessage');
+
+    // Voeg klikgebeurtenis toe aan de hele pagina
+    document.body.addEventListener('click', () => {
+        // Probeer de muziek af te spelen
+        music.play().then(() => {
+            autoplayMessage.style.display = 'none'; // Verberg de melding
+        }).catch((error) => {
+            console.warn("Autoplay geblokkeerd:", error);
+        });
+    }, { once: true }); // Zorg ervoor dat dit slechts één keer gebeurt
+</script>
+
+</body>
+</html>
